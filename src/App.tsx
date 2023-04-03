@@ -13,8 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="*" element={<p>Not found</p>} />
+          <Route path="*" element={<h1>Not found</h1>} />
         </Routes>
       </HashRouter>
     </>
