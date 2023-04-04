@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { blogPostsList } from './blog-posts-logic'
 
 
 export default function BlogPosts() {
   return (
-    <>
+    <main>
+      <h1>Blog Page</h1>
       <ul>
         {blogPostsList.map(({ key, title, slug }) => (
           <li key={key}>
@@ -13,6 +14,7 @@ export default function BlogPosts() {
           </li>
         ))}
       </ul>
-    </>
+      <Outlet />
+    </main>
   )
 }
