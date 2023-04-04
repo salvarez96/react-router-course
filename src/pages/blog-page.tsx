@@ -1,12 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import BlogPosts from '../components/blog-page/blog-posts'
-import { blogPosts } from '../components/blog-page/blog-posts-logic'
+import { blogPostsList } from '../components/blog-page/blog-posts-logic'
 
 export default function BlogPage() {
   const { slug } = useParams()
 
-  const postInfo = blogPosts.blogPosts.find(post => post.slug === slug)
+  const postInfo = blogPostsList.find(post => post.slug === slug)
 
   return (
     <main>
