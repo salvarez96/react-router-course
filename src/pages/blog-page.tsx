@@ -1,22 +1,19 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { blogPostsList } from '../components/blog-page/blog-posts-logic'
 
 export default function BlogPage() {
-  const { slug } = useParams()
-
-  const postInfo = blogPostsList.find(post => post.slug === slug)
-
   return (
-    <section>
-      {!postInfo 
-      ? <h2>Blog post not found</h2>
-      : <>
-          <h2>{postInfo.title}</h2>
-          <p>{postInfo.content}</p>
-          <h4>Por: {postInfo.author}</h4>
-        </>
-      }
-    </section>
+    <main>
+      <h1>Blog Page</h1>
+      <ul>
+        {blogPostsList.map(({ key, title, slug }) => (
+          <li key={key}>
+            <Link to={`/blog/${slug}`}>{title}</Link>
+          </li>
+        ))}
+      </ul>
+      <Outlet />
+    </main>
   )
 }
