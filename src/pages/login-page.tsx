@@ -1,20 +1,23 @@
 import React from 'react'
 import type { FormEventHandler } from 'react'
 import { useState } from 'react'
+import { useAuth } from '../auth/auth'
 
 export default function LoginPage() {
 
+  const { user, login, logout } = useAuth()
   const [username, setUsername] = useState('')
 
-  const login: FormEventHandler<HTMLFormElement> = (e) => {
+  const loginForm: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
-    console.log(username)
+    if (username.trim()) 
+      login(username.trim()) 
   }
 
   return (
     <main>
       <h1>LoginPage</h1>
-      <form onSubmit={login}>
+      <form onSubmit={loginForm}>
         <div>
           <label htmlFor="username">Ingresa tu nombre de usuario:</label>
           <br />

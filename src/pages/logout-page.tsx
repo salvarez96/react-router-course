@@ -1,17 +1,20 @@
 import React from 'react'
 import type { FormEventHandler } from 'react'
+import { useAuth } from '../auth/auth'
 
 export default function LogoutPage() {
 
-  const logout: FormEventHandler<HTMLFormElement> = e => {
+  const { logout } = useAuth()
+
+  const logoutForm: FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
-    console.log('Logout')
+    logout()
   }
 
   return (
     <main>
       <h1>LogoutPage</h1>
-      <form onSubmit={logout}>
+      <form onSubmit={logoutForm}>
         <label htmlFor="logout-button">Seguro que quieres salir?</label>
         <br />
         <button id='logout-button'>Logout</button>
