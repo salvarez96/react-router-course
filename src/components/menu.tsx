@@ -13,6 +13,14 @@ const navLinks = [
   {
     to: '/profile',
     text: 'Profile'
+  },
+  {
+    to: '/login',
+    text: 'Login'
+  },
+  {
+    to: '/logout',
+    text: 'Logout'
   }
 ]
 
